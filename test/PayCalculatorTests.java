@@ -5,9 +5,10 @@ import static org.junit.Assert.assertEquals;
 
 public class PayCalculatorTests {
     @Test
-    public void whenTimeIsPassedToCheckStartTimeItReturnTheTime(){
+    public void whenTimeIsPassedToConvertTimeTo24HourItConvertsTheTimeTo24Hr(){
         PayCalculator payCalculator = new PayCalculator();
-        assertEquals("5:00 PM", payCalculator.convertTimeTo24Hour("5:00 PM"));
+        assertEquals("17:00", payCalculator.convertTimeTo24Hour("5:00 PM"));
+        assertEquals("05:00", payCalculator.convertTimeTo24Hour("5:00 AM"));
     }
 
 }
