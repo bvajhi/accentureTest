@@ -83,11 +83,19 @@ public class PayCalculator {
         return time;
     }
 
-    // Assumess the time is in correct
+
     public int calculatePay(String startTime, String endTime, char family){
         int pay = 0;
-        int startHour = Integer.parseInt( convertTimeTo24Hour(startTime).split(":")[0]);
-        int endHour = Integer.parseInt( convertTimeTo24Hour(endTime).split(":")[0]);
+        String sTime = convertTimeTo24Hour(startTime);
+        if(null == sTime){
+            return -2;
+        }
+        String eTime = convertTimeTo24Hour(endTime);
+        if(null == eTime){
+            return -3;
+        }
+        int startHour = Integer.parseInt( sTime.split(":")[0]);
+        int endHour = Integer.parseInt( eTime.split(":")[0]);
         switch (family){
             case 'A':
                 pay = calculatePayForFamilyA(adjustTime(startHour),adjustTime(endHour));

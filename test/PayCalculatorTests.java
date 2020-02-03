@@ -55,6 +55,14 @@ public class PayCalculatorTests {
         assertEquals(114, payCalculator.calculatePay("5:00 PM", "11:00 PM", 'C'));
     }
 
+    @Test
+    public void whenWrongInputIsGivenToCalculatePayItShouldReturnANegativeNumber(){
+        PayCalculator payCalculator = new PayCalculator();
+        assertEquals(-1, payCalculator.calculatePay("5:00 PM", "10:00 PM", 'X'));
+        assertEquals(-2, payCalculator.calculatePay("5:00PM", "10:00 PM", 'B'));
+        assertEquals(-3, payCalculator.calculatePay("5:00 PM", "11:00PM", 'C'));
+    }
+
 
 
 
