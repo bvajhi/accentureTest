@@ -74,6 +74,18 @@ public class PayCalculator {
         return total;
     }
 
+    public int adjustTime (int time){
+        // End hour adjustment for easy calculation
+        if (time <= 4) {
+            time = (time + 24);
+        }
+        return time;
+    }
 
+    // Assumess the time is in correct
+    public int calculatePay(String startTime, String EndTime, char family){
+        int pay = 0;
+        return pay;
+    }
 
 }

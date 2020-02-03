@@ -39,4 +39,14 @@ public class PayCalculatorTests {
 
     }
 
+    @Test
+    public void whenTimeIsGivenToAdjustTimeItAdjustsTime(){
+        PayCalculator payCalculator = new PayCalculator();
+        assertEquals(28, payCalculator.adjustTime(4));
+        assertEquals(23, payCalculator.adjustTime(23));
+
+    }
+
+
+
 }
