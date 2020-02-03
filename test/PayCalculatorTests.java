@@ -47,6 +47,15 @@ public class PayCalculatorTests {
 
     }
 
+    @Test
+    public void whenTimeIsGivenAndFamilyToCalculatePayToShouldProduceTheCorrectResult(){
+        PayCalculator payCalculator = new PayCalculator();
+        assertEquals(75, payCalculator.calculatePay("5:00 PM", "10:00 PM", 'A'));
+        assertEquals(60, payCalculator.calculatePay("5:00 PM", "10:00 PM", 'B'));
+        assertEquals(114, payCalculator.calculatePay("5:00 PM", "11:00 PM", 'C'));
+    }
+
+
 
 
 }

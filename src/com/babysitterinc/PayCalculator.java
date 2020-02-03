@@ -21,6 +21,7 @@ public class PayCalculator {
             output = outputFormat.format(date);
         }catch(ParseException pe){
             pe.printStackTrace();
+            return null;
         }
         return output;
     }
@@ -83,8 +84,24 @@ public class PayCalculator {
     }
 
     // Assumess the time is in correct
-    public int calculatePay(String startTime, String EndTime, char family){
+    public int calculatePay(String startTime, String endTime, char family){
         int pay = 0;
+        int startHour = Integer.parseInt( convertTimeTo24Hour(startTime).split(":")[0]);
+        int endHour = Integer.parseInt( convertTimeTo24Hour(endTime).split(":")[0]);
+        switch (family){
+            case 'A':
+                pay = calculatePayForFamilyA(adjustTime(startHour),adjustTime(endHour));
+                break;
+            case 'B':
+                pay = calculatePayForFamilyB(adjustTime(startHour),adjustTime(endHour));
+                break;
+            case 'C':
+                pay = calculatePayForFamilyC(adjustTime(startHour),adjustTime(endHour));
+                break;
+            default:
+                pay = -1;
+        }
+
         return pay;
     }
 
