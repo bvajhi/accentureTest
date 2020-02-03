@@ -83,6 +83,19 @@ public class PayCalculator {
         return time;
     }
 
+    public boolean isStartTimeCorrect(int sTime){
+        if (sTime < 17 && sTime >= 4){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isEndTimeCorrect(int eTime){
+        if (eTime > 4 && eTime < 17){
+            return false;
+        }
+        return true;
+    }
 
     public int calculatePay(String startTime, String endTime, char family){
         int pay = 0;
@@ -95,7 +108,14 @@ public class PayCalculator {
             return -3;
         }
         int startHour = Integer.parseInt( sTime.split(":")[0]);
+        if (!isStartTimeCorrect(startHour)){
+            return -4;
+        }
+
         int endHour = Integer.parseInt( eTime.split(":")[0]);
+        if (!isEndTimeCorrect(endHour)){
+            return -5;
+        }
         switch (family){
             case 'A':
                 pay = calculatePayForFamilyA(adjustTime(startHour),adjustTime(endHour));

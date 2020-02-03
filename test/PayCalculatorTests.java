@@ -63,7 +63,33 @@ public class PayCalculatorTests {
         assertEquals(-3, payCalculator.calculatePay("5:00 PM", "11:00PM", 'C'));
     }
 
+    @Test
+    public void whenANumberBetween4And16IsPassedIntoIsStartTimeCorrectItShouldReturnFalse(){
+        PayCalculator payCalculator = new PayCalculator();
+        assertEquals(false, payCalculator.isStartTimeCorrect(4));
+        assertEquals(false, payCalculator.isStartTimeCorrect(12));
+    }
 
+    @Test
+    public void whenANumberBetween17And3IsPassedIntoIsStartTimeCorrectItShouldReturnTrue(){
+        PayCalculator payCalculator = new PayCalculator();
+        assertEquals(true, payCalculator.isStartTimeCorrect(17));
+        assertEquals(true, payCalculator.isStartTimeCorrect(2));
+    }
+
+    @Test
+    public void whenANumberBetween5And16IsPassedIntoIsEndTimeCorrectItShouldReturnFalse(){
+        PayCalculator payCalculator = new PayCalculator();
+        assertEquals(false, payCalculator.isStartTimeCorrect(6));
+        assertEquals(false, payCalculator.isStartTimeCorrect(12));
+    }
+
+    @Test
+    public void whenANumberBetween17And4IsPassedIntoIsStartTimeCorrectItShouldReturnTrue(){
+        PayCalculator payCalculator = new PayCalculator();
+        assertEquals(true, payCalculator.isStartTimeCorrect(17));
+        assertEquals(true, payCalculator.isStartTimeCorrect(2));
+    }
 
 
 }
