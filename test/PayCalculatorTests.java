@@ -20,4 +20,23 @@ public class PayCalculatorTests {
 
     }
 
+    @Test
+    public void whenStartAndEndHoursArePassedIntoCalculatePayForFamilyBItShouldCalculateTheCorrectResult(){
+        PayCalculator payCalculator = new PayCalculator();
+        assertEquals(60, payCalculator.calculatePayForFamilyB(17,22));
+        assertEquals(68, payCalculator.calculatePayForFamilyB(17,23));
+        assertEquals(8, payCalculator.calculatePayForFamilyB(22,23));
+        assertEquals(24, payCalculator.calculatePayForFamilyB(23,25));
+
+    }
+
+    @Test
+    public void whenStartAndEndHoursArePassedIntoCalculatePayForFamilyCItShouldCalculateTheCorrectResult(){
+        PayCalculator payCalculator = new PayCalculator();
+        assertEquals(84, payCalculator.calculatePayForFamilyC(17,21));
+        assertEquals(60, payCalculator.calculatePayForFamilyC(22,26));
+        assertEquals(114, payCalculator.calculatePayForFamilyC(17,23));
+
+    }
+
 }

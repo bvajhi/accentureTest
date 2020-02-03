@@ -27,7 +27,7 @@ public class PayCalculator {
 
    public int calculatePayForFamilyA(int startHour, int endHour){
        int total = 0;
-       
+
        if (endHour <= 23) {
            total = (endHour - startHour) * 15;
 
@@ -39,6 +39,40 @@ public class PayCalculator {
        }
        return total;
    }
+
+    public int calculatePayForFamilyB(int startHour, int endHour) {
+        int total= 0;
+        if (endHour <= 22) {
+            total = (endHour - startHour) * 12;
+        } else if (startHour < 22 && endHour > 22) {
+            total = ((22 - startHour) * 12) + 16 + ((endHour - 24) * 16);
+            if (endHour > 22 && endHour < 24) {
+                total = ((22 - startHour) * 12) + ((24 - endHour) * 8);
+            }
+        } else if (startHour >= 22 && endHour < 24) {
+            total = ((startHour - 22) * 8) + ((endHour - 22) * 8);
+        } else if (startHour >= 22 && endHour > 24) {
+            total = ((24 - startHour) * 8) + ((endHour - 24) * 16);
+            if (startHour >= 24) {
+                total = (endHour - startHour) * 16;
+            }
+        } else if (startHour < 22 && endHour < 24) {
+            total = ((22 - startHour) * 12) + ((24 - endHour) * 8);
+        }
+        return total;
+    }
+
+    public int calculatePayForFamilyC(int startHour, int endHour) {
+        int total = 0;
+        if (endHour <= 21) {
+            total = (endHour - startHour) * 21;
+        } else if (endHour >= 21 && startHour >= 21) {
+            total = (endHour - startHour) * 15;
+        } else if (startHour < 21 && endHour >= 21) {
+            total = ((21 - startHour) * 21) + ((endHour - 21) * 15);
+        }
+        return total;
+    }
 
 
 
